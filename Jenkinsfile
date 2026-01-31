@@ -1,10 +1,6 @@
 pipeline {
     // 1. Chỉ định Jenkins sử dụng Docker để tạo môi trường Python sạch
-    agent {
-        docker {
-            image 'python:3.10-slim'
-        }
-    }
+    agent any
 
     stages {
         // 2. Giai đoạn chuẩn bị môi trường
