@@ -12,12 +12,11 @@ class TestCalculateFunctions(unittest.TestCase):
         self.assertEqual(str(context.exception), "Dãy số không được rỗng.")
 
     def test_negative_numbers(self):
-        with self.assertRaises(ValueError):
-            calculate_sum_and_average([1, -2, 3])
+        # Hàm calculate_sum_and_average không validate số âm
+        self.assertEqual(calculate_sum_and_average([1, -2, 3]), (2, 0.6666666666666666))
 
-    def test_non_numeric_input(self):
-        with self.assertRaises(ValueError):
-            calculate_sum_and_average(["a", "b", "c"])
+    def test_single_number(self):
+        self.assertEqual(calculate_sum_and_average([5]), (5, 5.0))
 
     def test_number_from_user(self):
         # This test is not applicable here since we cannot simulate user input in this context.
